@@ -14,3 +14,13 @@
     #import <UIKit/UIKit.h>
     #import <Foundation/Foundation.h>
 #endif
+
+#ifndef IB_DESIGNABLE
+#define IB_DESIGNABLE
+#endif
+#ifndef IBInspectable
+#define IBInspectable
+#endif
+#ifndef TARGET_INTERFACE_BUILDER
+#define TARGET_INTERFACE_BUILDER 0
+#endif

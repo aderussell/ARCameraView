@@ -13,25 +13,15 @@
 		ABBC8C441992A194008F3153 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C421992A194008F3153 /* InfoPlist.strings */; };
 		ABBC8C461992A194008F3153 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C451992A194008F3153 /* main.m */; };
 		ABBC8C4A1992A194008F3153 /* ARAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C491992A194008F3153 /* ARAppDelegate.m */; };
-		ABBC8C4D1992A194008F3153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C4B1992A194008F3153 /* Main.storyboard */; };
 		ABBC8C501992A194008F3153 /* ARViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C4F1992A194008F3153 /* ARViewController.m */; };
 		ABBC8C521992A194008F3153 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C511992A194008F3153 /* Images.xcassets */; };
-		ABBC8C591992A194008F3153 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBC8C581992A194008F3153 /* XCTest.framework */; };
-		ABBC8C5A1992A195008F3153 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBC8C391992A194008F3153 /* Foundation.framework */; };
-		ABBC8C5B1992A195008F3153 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ABBC8C3D1992A194008F3153 /* UIKit.framework */; };
-		ABBC8C631992A195008F3153 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C611992A195008F3153 /* InfoPlist.strings */; };
-		ABBC8C651992A195008F3153 /* ARCameraViewTests.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C641992A195008F3153 /* ARCameraViewTests.m */; };
+		ABBC8C751992A226008F3153 /* ARCameraButton.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C701992A226008F3153 /* ARCameraButton.m */; };
+		ABBC8C761992A226008F3153 /* ARCameraView.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C721992A226008F3153 /* ARCameraView.m */; };
+		ABBC8C771992A226008F3153 /* AVCamCaptureManager.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C741992A226008F3153 /* AVCamCaptureManager.m */; };
+		ABBC8C7A199403E6008F3153 /* UIImage+AspectResize.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C79199403E6008F3153 /* UIImage+AspectResize.m */; };
+		ABBC8C801994F528008F3153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C4B1992A194008F3153 /* Main.storyboard */; };
+		ABBC8C811994F528008F3153 /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C7F1994F26B008F3153 /* Main-iPhone.storyboard */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		ABBC8C5C1992A195008F3153 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = ABBC8C2E1992A194008F3153 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = ABBC8C351992A194008F3153;
-			remoteInfo = ARCameraView;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		ABBC8C361992A194008F3153 /* ARCameraView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ARCameraView.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -48,11 +38,15 @@
 		ABBC8C4E1992A194008F3153 /* ARViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ARViewController.h; sourceTree = "<group>"; };
 		ABBC8C4F1992A194008F3153 /* ARViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARViewController.m; sourceTree = "<group>"; };
 		ABBC8C511992A194008F3153 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		ABBC8C571992A194008F3153 /* ARCameraViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ARCameraViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		ABBC8C581992A194008F3153 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
-		ABBC8C601992A195008F3153 /* ARCameraViewTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "ARCameraViewTests-Info.plist"; sourceTree = "<group>"; };
-		ABBC8C621992A195008F3153 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		ABBC8C641992A195008F3153 /* ARCameraViewTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ARCameraViewTests.m; sourceTree = "<group>"; };
+		ABBC8C6F1992A226008F3153 /* ARCameraButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCameraButton.h; sourceTree = "<group>"; };
+		ABBC8C701992A226008F3153 /* ARCameraButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCameraButton.m; sourceTree = "<group>"; };
+		ABBC8C711992A226008F3153 /* ARCameraView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ARCameraView.h; sourceTree = "<group>"; };
+		ABBC8C721992A226008F3153 /* ARCameraView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ARCameraView.m; sourceTree = "<group>"; };
+		ABBC8C731992A226008F3153 /* AVCamCaptureManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AVCamCaptureManager.h; sourceTree = "<group>"; };
+		ABBC8C741992A226008F3153 /* AVCamCaptureManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AVCamCaptureManager.m; sourceTree = "<group>"; };
+		ABBC8C78199403E6008F3153 /* UIImage+AspectResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AspectResize.h"; sourceTree = "<group>"; };
+		ABBC8C79199403E6008F3153 /* UIImage+AspectResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AspectResize.m"; sourceTree = "<group>"; };
+		ABBC8C7E1994F26B008F3153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -66,16 +60,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		ABBC8C541992A194008F3153 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABBC8C591992A194008F3153 /* XCTest.framework in Frameworks */,
-				ABBC8C5B1992A195008F3153 /* UIKit.framework in Frameworks */,
-				ABBC8C5A1992A195008F3153 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -83,7 +67,6 @@
 			isa = PBXGroup;
 			children = (
 				ABBC8C3F1992A194008F3153 /* ARCameraView */,
-				ABBC8C5E1992A195008F3153 /* ARCameraViewTests */,
 				ABBC8C381992A194008F3153 /* Frameworks */,
 				ABBC8C371992A194008F3153 /* Products */,
 			);
@@ -93,7 +76,6 @@
 			isa = PBXGroup;
 			children = (
 				ABBC8C361992A194008F3153 /* ARCameraView.app */,
-				ABBC8C571992A194008F3153 /* ARCameraViewTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -104,7 +86,6 @@
 				ABBC8C391992A194008F3153 /* Foundation.framework */,
 				ABBC8C3B1992A194008F3153 /* CoreGraphics.framework */,
 				ABBC8C3D1992A194008F3153 /* UIKit.framework */,
-				ABBC8C581992A194008F3153 /* XCTest.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -115,12 +96,15 @@
 				ABBC8C481992A194008F3153 /* ARAppDelegate.h */,
 				ABBC8C491992A194008F3153 /* ARAppDelegate.m */,
 				ABBC8C4B1992A194008F3153 /* Main.storyboard */,
+				ABBC8C7F1994F26B008F3153 /* Main-iPhone.storyboard */,
 				ABBC8C4E1992A194008F3153 /* ARViewController.h */,
 				ABBC8C4F1992A194008F3153 /* ARViewController.m */,
+				ABBC8C6E1992A226008F3153 /* Camera View */,
 				ABBC8C511992A194008F3153 /* Images.xcassets */,
 				ABBC8C401992A194008F3153 /* Supporting Files */,
 			);
-			path = ARCameraView;
+			name = ARCameraView;
+			path = "ARCameraView Demo";
 			sourceTree = "<group>";
 		};
 		ABBC8C401992A194008F3153 /* Supporting Files */ = {
@@ -134,22 +118,20 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		ABBC8C5E1992A195008F3153 /* ARCameraViewTests */ = {
+		ABBC8C6E1992A226008F3153 /* Camera View */ = {
 			isa = PBXGroup;
 			children = (
-				ABBC8C641992A195008F3153 /* ARCameraViewTests.m */,
-				ABBC8C5F1992A195008F3153 /* Supporting Files */,
+				ABBC8C6F1992A226008F3153 /* ARCameraButton.h */,
+				ABBC8C701992A226008F3153 /* ARCameraButton.m */,
+				ABBC8C711992A226008F3153 /* ARCameraView.h */,
+				ABBC8C721992A226008F3153 /* ARCameraView.m */,
+				ABBC8C731992A226008F3153 /* AVCamCaptureManager.h */,
+				ABBC8C741992A226008F3153 /* AVCamCaptureManager.m */,
+				ABBC8C78199403E6008F3153 /* UIImage+AspectResize.h */,
+				ABBC8C79199403E6008F3153 /* UIImage+AspectResize.m */,
 			);
-			path = ARCameraViewTests;
-			sourceTree = "<group>";
-		};
-		ABBC8C5F1992A195008F3153 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				ABBC8C601992A195008F3153 /* ARCameraViewTests-Info.plist */,
-				ABBC8C611992A195008F3153 /* InfoPlist.strings */,
-			);
-			name = "Supporting Files";
+			name = "Camera View";
+			path = ../ARCameraView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,24 +154,6 @@
 			productReference = ABBC8C361992A194008F3153 /* ARCameraView.app */;
 			productType = "com.apple.product-type.application";
 		};
-		ABBC8C561992A194008F3153 /* ARCameraViewTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = ABBC8C6B1992A195008F3153 /* Build configuration list for PBXNativeTarget "ARCameraViewTests" */;
-			buildPhases = (
-				ABBC8C531992A194008F3153 /* Sources */,
-				ABBC8C541992A194008F3153 /* Frameworks */,
-				ABBC8C551992A194008F3153 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				ABBC8C5D1992A195008F3153 /* PBXTargetDependency */,
-			);
-			name = ARCameraViewTests;
-			productName = ARCameraViewTests;
-			productReference = ABBC8C571992A194008F3153 /* ARCameraViewTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -199,11 +163,6 @@
 				CLASSPREFIX = AR;
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Adrian Russell";
-				TargetAttributes = {
-					ABBC8C561992A194008F3153 = {
-						TestTargetID = ABBC8C351992A194008F3153;
-					};
-				};
 			};
 			buildConfigurationList = ABBC8C311992A194008F3153 /* Build configuration list for PBXProject "ARCameraView" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -219,7 +178,6 @@
 			projectRoot = "";
 			targets = (
 				ABBC8C351992A194008F3153 /* ARCameraView */,
-				ABBC8C561992A194008F3153 /* ARCameraViewTests */,
 			);
 		};
 /* End PBXProject section */
@@ -229,17 +187,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABBC8C801994F528008F3153 /* Main.storyboard in Resources */,
+				ABBC8C811994F528008F3153 /* Main-iPhone.storyboard in Resources */,
 				ABBC8C521992A194008F3153 /* Images.xcassets in Resources */,
 				ABBC8C441992A194008F3153 /* InfoPlist.strings in Resources */,
-				ABBC8C4D1992A194008F3153 /* Main.storyboard in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABBC8C551992A194008F3153 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABBC8C631992A195008F3153 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,28 +202,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				ABBC8C461992A194008F3153 /* main.m in Sources */,
+				ABBC8C771992A226008F3153 /* AVCamCaptureManager.m in Sources */,
+				ABBC8C7A199403E6008F3153 /* UIImage+AspectResize.m in Sources */,
 				ABBC8C501992A194008F3153 /* ARViewController.m in Sources */,
+				ABBC8C761992A226008F3153 /* ARCameraView.m in Sources */,
 				ABBC8C4A1992A194008F3153 /* ARAppDelegate.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		ABBC8C531992A194008F3153 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				ABBC8C651992A195008F3153 /* ARCameraViewTests.m in Sources */,
+				ABBC8C751992A226008F3153 /* ARCameraButton.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		ABBC8C5D1992A195008F3153 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = ABBC8C351992A194008F3153 /* ARCameraView */;
-			targetProxy = ABBC8C5C1992A195008F3153 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		ABBC8C421992A194008F3153 /* InfoPlist.strings */ = {
@@ -291,12 +230,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		ABBC8C611992A195008F3153 /* InfoPlist.strings */ = {
+		ABBC8C7F1994F26B008F3153 /* Main-iPhone.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				ABBC8C621992A195008F3153 /* en */,
+				ABBC8C7E1994F26B008F3153 /* Base */,
 			);
-			name = InfoPlist.strings;
+			name = "Main-iPhone.storyboard";
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -379,10 +318,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ARCameraView/ARCameraView-Prefix.pch";
-				INFOPLIST_FILE = "ARCameraView/ARCameraView-Info.plist";
+				GCC_PREFIX_HEADER = "ARCameraView Demo/ARCameraView-Prefix.pch";
+				INFOPLIST_FILE = "ARCameraView Demo/ARCameraView-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -392,51 +335,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ARCameraView/ARCameraView-Prefix.pch";
-				INFOPLIST_FILE = "ARCameraView/ARCameraView-Info.plist";
+				GCC_PREFIX_HEADER = "ARCameraView Demo/ARCameraView-Prefix.pch";
+				INFOPLIST_FILE = "ARCameraView Demo/ARCameraView-Info.plist";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
-			};
-			name = Release;
-		};
-		ABBC8C6C1992A195008F3153 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ARCameraView.app/ARCameraView";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ARCameraView/ARCameraView-Prefix.pch";
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				INFOPLIST_FILE = "ARCameraViewTests/ARCameraViewTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
-			};
-			name = Debug;
-		};
-		ABBC8C6D1992A195008F3153 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/ARCameraView.app/ARCameraView";
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
-				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "ARCameraView/ARCameraView-Prefix.pch";
-				INFOPLIST_FILE = "ARCameraViewTests/ARCameraViewTests-Info.plist";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
-				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
 		};
@@ -459,14 +366,7 @@
 				ABBC8C6A1992A195008F3153 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-		};
-		ABBC8C6B1992A195008F3153 /* Build configuration list for PBXNativeTarget "ARCameraViewTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				ABBC8C6C1992A195008F3153 /* Debug */,
-				ABBC8C6D1992A195008F3153 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

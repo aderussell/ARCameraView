@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5056" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="bwy-Rf-YMw">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="BJ9-oc-eu0">
+            <objects>
+                <viewController id="bwy-Rf-YMw" customClass="ARViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="kSj-jY-5be"/>
+                        <viewControllerLayoutGuide type="bottom" id="cLe-Fk-CBC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fLq-lk-1Eu">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gry-n4-liq" customClass="ARCameraView">
+                                <rect key="frame" x="28" y="40" width="264" height="474"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" red="0.0" green="0.80000000000000004" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            </view>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="m2m-HO-aZy">
+                                <rect key="frame" x="99" y="522" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="toggleOverlay:" destination="bwy-Rf-YMw" eventType="valueChanged" id="q4u-93-6cc"/>
+                                </connections>
+                            </switch>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overlay:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y34-Zr-Zom">
+                                <rect key="frame" x="28" y="527" width="63" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="m2m-HO-aZy" firstAttribute="leading" secondItem="Y34-Zr-Zom" secondAttribute="trailing" constant="8" symbolic="YES" id="0Ok-cl-jiN"/>
+                            <constraint firstItem="gry-n4-liq" firstAttribute="leading" secondItem="fLq-lk-1Eu" secondAttribute="leading" constant="28" id="5oF-uk-pHS"/>
+                            <constraint firstAttribute="trailing" secondItem="gry-n4-liq" secondAttribute="trailing" constant="28" id="8gS-G3-kpP"/>
+                            <constraint firstItem="gry-n4-liq" firstAttribute="top" secondItem="kSj-jY-5be" secondAttribute="bottom" constant="20" id="Mhx-Wh-Vi9"/>
+                            <constraint firstItem="m2m-HO-aZy" firstAttribute="top" secondItem="gry-n4-liq" secondAttribute="bottom" constant="8" id="Myb-GZ-gcA"/>
+                            <constraint firstItem="m2m-HO-aZy" firstAttribute="leading" secondItem="fLq-lk-1Eu" secondAttribute="leading" constant="99" id="PFb-XT-kCM"/>
+                            <constraint firstItem="m2m-HO-aZy" firstAttribute="centerY" secondItem="Y34-Zr-Zom" secondAttribute="centerY" id="emp-Mp-oXF"/>
+                            <constraint firstItem="cLe-Fk-CBC" firstAttribute="top" secondItem="m2m-HO-aZy" secondAttribute="bottom" constant="15" id="sYQ-sa-iPH"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cameraView" destination="gry-n4-liq" id="7PI-qd-8jU"/>
+                        <outlet property="overlaySwitch" destination="m2m-HO-aZy" id="eXc-eb-CKI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rfA-KJ-ctO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="367" y="290"/>
+        </scene>
+    </scenes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination" type="retina4"/>
+    </simulatedMetricsContainer>
+</document>

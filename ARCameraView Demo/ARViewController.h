@@ -6,8 +6,10 @@
 //  Copyright (c) 2014 Adrian Russell. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+@import UIKit;
+#import "ARCameraView.h"
 
 @interface ARViewController : UIViewController
-
+@property (weak) IBOutlet ARCameraView *cameraView;
+@property (weak) IBOutlet UISwitch     *overlaySwitch;
 @end
