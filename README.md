@@ -26,3 +26,6 @@ The camera view has a delegate that can be used to receive notifications that a 
 If you wish to use a custom shutter button on the camera view then that is possible by subclassing both ARCameraButton and ARCameraView.
 The only method that should be overwritten in ARCameraButton is `-drawRect:` and the button must be 60px-60px in size.
 In the ARCameraview subclass, overwrite the method `+cameraButtonClass` to return the name of your new button class.
+
+## License
+ARCameraView is available under the MIT license. See the LICENSE file for more info.
