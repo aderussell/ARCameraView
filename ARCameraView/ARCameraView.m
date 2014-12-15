@@ -181,6 +181,24 @@
     [label addGestureRecognizer:tap];
 }
 
+/** creates a label saying that camera access permission is denied. */
+- (void)createNoCameraPermissionView
+{
+    // create a label that says the camera couldn't start and add to camera view.
+    UILabel *label = [[UILabel alloc] initWithFrame:self.bounds];
+    label.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
+    label.textColor = [UIColor whiteColor];
+    label.numberOfLines = 2;
+    label.textAlignment = NSTextAlignmentCenter;
+    label.text = @"Permission to access the camera has been denied\nYou can grant permission in the Settings app";
+    [self addSubview:label];
+    
+    // add tap recognizer to label that will attempt to retry to start the camera.
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(retrySetup:)];
+    label.userInteractionEnabled = YES;
+    [label addGestureRecognizer:tap];
+}
+
 /** action for tap recogniser: attempts to start camera. */
 - (void)retrySetup:(UITapGestureRecognizer *)tap
 {
@@ -312,7 +330,13 @@
     if (![self.captureManager hasSession]) {
         BOOL success = [self setupCaptureManager];
         if (!success) {
-            [self createNoInputView];
+            
+            if ([AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo] == AVAuthorizationStatusDenied) {
+                [self createNoCameraPermissionView];
+            } else {
+                [self createNoInputView];
+            }
+            
             return;
         }
     }
@@ -350,6 +374,8 @@
 
 - (void)stopCamera
 {
+    
+    
     // if the camera isn't running then there is nothing to do so just return.
     if (![[_captureManager session] isRunning]) return;
     

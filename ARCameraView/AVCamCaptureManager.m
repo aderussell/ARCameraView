@@ -64,6 +64,9 @@ AVCaptureVideoOrientation AVCaptureVideoOrientationFromUIInterfaceOrientation(UI
         case UIInterfaceOrientationLandscapeRight:
             return AVCaptureVideoOrientationLandscapeRight;
             break;
+        default:
+            return AVCaptureVideoOrientationPortrait;
+            break;
     }
 }
 
