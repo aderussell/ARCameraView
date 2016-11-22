@@ -23,10 +23,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import "ARCameraView.h"
 #import "AVCamCaptureManager.h"
-#import "ARCameraButton.h"
 #import "UIImage+AspectResize.h"
 
-#define CAMERA_BUTTON_WIDTH                60.0
 #define CAMERA_BUTTON_DISTANCE_FROM_BOTTOM 40.0
 
 //-----------------------------------------------------------------------------//
@@ -39,9 +37,6 @@
 
 /** The layer to which the live preview of the camera is displayed on the view. */
 @property AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
-
-/** The button that is pressed to capture an image. */
-@property ARCameraButton *snapButton;
 
 /** The image view upon which the captured image is displayed. */
 @property UIImageView *imageView;
@@ -163,6 +158,21 @@
     }
 }
 
+- (void)setCaptureButton:(ARCameraButton *)captureButton
+{
+    if (_captureButton != captureButton) {
+        
+        // if the existing camera button is a subview of the camera view; remove it so it will be released
+        if (_captureButton.superview == self) {
+            [_captureButton removeFromSuperview];
+        }
+        
+        _captureButton = captureButton;
+    }
+}
+
+
+
 #pragma mark - Setup Failure
 
 /** creates a label saying that starting the camera failed. */
@@ -240,15 +250,15 @@
     NSAssert([cameraClass isSubclassOfClass:[ARCameraButton class]], @"The cameraButtonClass method must return either ARCameraButton or a subclass of that class");
     
     // create the button object.
-    self.snapButton = [cameraClass buttonWithType:UIButtonTypeCustom];
-    self.snapButton.hidden = YES;
-    self.snapButton.translatesAutoresizingMaskIntoConstraints = NO;
-    [self.snapButton addTarget:self action:@selector(captureImage:) forControlEvents:UIControlEventTouchUpInside];
-    [self addSubview:self.snapButton];
+    self.captureButton = [cameraClass buttonWithType:UIButtonTypeCustom];
+    self.captureButton.hidden = YES;
+    self.captureButton.translatesAutoresizingMaskIntoConstraints = NO;
+    [self.captureButton addTarget:self action:@selector(captureImage:) forControlEvents:UIControlEventTouchUpInside];
+    [self addSubview:self.captureButton];
     
     
     // constraint to keep button a set distance from bottom of camera view.
-    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:self.snapButton
+    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:self.captureButton
                                                               attribute:NSLayoutAttributeBottom
                                                               relatedBy:NSLayoutRelationEqual
                                                                  toItem:self
@@ -257,7 +267,7 @@
                                                                constant:-CAMERA_BUTTON_DISTANCE_FROM_BOTTOM];
     
     // constraint to horiziontally center the button in the camera view.
-    NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:self.snapButton
+    NSLayoutConstraint *centerX = [NSLayoutConstraint constraintWithItem:self.captureButton
                                                                attribute:NSLayoutAttributeCenterX
                                                                relatedBy:NSLayoutRelationEqual
                                                                   toItem:self
@@ -265,27 +275,8 @@
                                                               multiplier:1.0
                                                                 constant:0.0];
     
-    // constraint to set width of the button.
-    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:self.snapButton
-                                                             attribute:NSLayoutAttributeWidth
-                                                             relatedBy:NSLayoutRelationEqual
-                                                                toItem:nil
-                                                             attribute:NSLayoutAttributeNotAnAttribute
-                                                            multiplier:1.0
-                                                              constant:CAMERA_BUTTON_WIDTH];
-    
-    // constraint to set the height of the button.
-    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:self.snapButton
-                                                              attribute:NSLayoutAttributeHeight
-                                                              relatedBy:NSLayoutRelationEqual
-                                                                 toItem:nil
-                                                              attribute:NSLayoutAttributeNotAnAttribute
-                                                             multiplier:1.0
-                                                               constant:CAMERA_BUTTON_WIDTH];
     
     // add the above constraints to keep the camera button in place.
-    [self.snapButton addConstraint:width];
-    [self.snapButton addConstraint:height];
     [self addConstraint:bottom];
     [self addConstraint:centerX];
 }
@@ -296,7 +287,7 @@
 {
     
     AVCaptureDevice *device = self.captureManager.videoInput.device;
-    self.snapButton.hidden = device.adjustingFocus;
+    self.captureButton.hidden = device.adjustingFocus;
 }
 
 /** add a KVO for the class observing if the capture device is adjusting its focus. If there already is one then it does nothing. */
@@ -368,8 +359,8 @@
                        [self.captureManager.session startRunning];
                        
                        dispatch_sync(dispatch_get_main_queue(), ^(void){
-                           [self bringSubviewToFront:_snapButton];
-                           _snapButton.hidden = NO;
+                           [self bringSubviewToFront:self.captureButton];
+                           self.captureButton.hidden = NO;
                        });
                    });
 }
@@ -396,7 +387,7 @@
                        
                        dispatch_sync(dispatch_get_main_queue(), ^(void){
                            _imageTaken = nil;
-                           _snapButton.hidden = YES;
+                           self.captureButton.hidden = YES;
                        });
                    });
 }
@@ -421,7 +412,7 @@
                        
                        dispatch_sync(dispatch_get_main_queue(), ^(void) {
                            self.imageTaken = nil;
-                           self.snapButton.hidden = YES;
+                           self.captureButton.hidden = YES;
                        });
                    });
 }
@@ -471,14 +462,11 @@
 {
     // if the camera is not running and an image is being displayed, remove the image and start the camera.
     if (![[_captureManager session] isRunning]) {
-        self.snapButton.showingCancel = NO;
+        self.captureButton.showingCancel = NO;
         [_imageView removeFromSuperview];
         [[_captureManager session] startRunning];
         return;
     }
-    
-    // capture a still image from the camera. The actual image is received by the -captureManagerStillImageCaptured:image: delegate method.
-    [self.captureManager captureStillImage];
     
     // Flash the screen white and fade it out to give UI feedback that a still image was taken
     UIView *flashView = [[UIView alloc] initWithFrame:self.bounds];
@@ -492,10 +480,13 @@
                      }
                      completion:^(BOOL finished){
                          [flashView removeFromSuperview];
-                         self.snapButton.showingCancel = YES;
+                         self.captureButton.showingCancel = YES;
                          [[_captureManager session] stopRunning];
                      }
      ];
+    
+    // capture a still image from the camera. The actual image is received by the -captureManagerStillImageCaptured:image: delegate method.
+    [self.captureManager captureStillImage];
 }
 
 - (void)removeTakenImage
@@ -511,7 +502,7 @@
     // restart the camera live capturing.
     if (![[self.captureManager session] isRunning]) {
         [[self.captureManager session] startRunning];
-        self.snapButton.showingCancel = NO;
+        self.captureButton.showingCancel = NO;
     }
 }
 
@@ -549,7 +540,7 @@
     // set up image view and add to camera view (below snap button as we need that to be visible)
     self.imageView.frame = self.bounds;
     self.imageView.image = self.imageTaken;
-    [self insertSubview:self.imageView belowSubview:self.snapButton];
+    [self insertSubview:self.imageView belowSubview:self.captureButton];
     
     // message the delegate that an iamge was taken.
     if ([self.delegate respondsToSelector:@selector(cameraView:hasTakenImage:)]) {

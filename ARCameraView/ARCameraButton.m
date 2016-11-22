@@ -24,6 +24,12 @@
 
 @implementation ARCameraButton
 
+- (CGSize)intrinsicContentSize
+{
+    return CGSizeMake(60, 60);
+}
+
+
 -(void)setEnabled:(BOOL)enabled
 {
     [super setEnabled:enabled];

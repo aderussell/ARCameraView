@@ -93,13 +93,13 @@
 		ABBC8C3F1992A194008F3153 /* ARCameraView */ = {
 			isa = PBXGroup;
 			children = (
+				ABBC8C6E1992A226008F3153 /* Camera View */,
 				ABBC8C481992A194008F3153 /* ARAppDelegate.h */,
 				ABBC8C491992A194008F3153 /* ARAppDelegate.m */,
 				ABBC8C4B1992A194008F3153 /* Main.storyboard */,
 				ABBC8C7F1994F26B008F3153 /* Main-iPhone.storyboard */,
 				ABBC8C4E1992A194008F3153 /* ARViewController.h */,
 				ABBC8C4F1992A194008F3153 /* ARViewController.m */,
-				ABBC8C6E1992A226008F3153 /* Camera View */,
 				ABBC8C511992A194008F3153 /* Images.xcassets */,
 				ABBC8C401992A194008F3153 /* Supporting Files */,
 			);

@@ -21,6 +21,7 @@
 //
 
 @import UIKit;
+#import "ARCameraButton.h"
 
 @class ARCameraView;
 
@@ -45,6 +46,9 @@
 - (void)cameraViewDidChangeCamera:(ARCameraView *)cameraView;
 
 @end
+
+
+
 
 //---------------------------------------------------------------------------------
 #pragma mark - CameraView Class interface
@@ -75,6 +79,8 @@
 /** The entire image taken by camera. depending on view ratio may contain more image. `nil` if no image taken. */
 @property (readonly) UIImage *wholeImageTaken;
 
+
+
 /** @name Controlling Camera */
 
 /** Remove the image that has been captured and restart the camera. */
@@ -100,13 +106,17 @@
 /** Whether, or not, the capture button is hidden while the camera is adjusting the focus. The default is `YES`. */
 @property (nonatomic) BOOL hideCaptureButtonDuringCameraAdjustingFocus;
 
+/** The button that is pressed to capture an image. */
+@property (nonatomic) ARCameraButton *captureButton;
 
 @end
 
 
 @interface ARCameraView (UsefulAdditions)
 
-/** Whether, or not, the camera view has an image taken. */
+/** 
+ * Whether, or not, the camera view has an image taken. 
+ */
 - (BOOL)hasImage;
 
 @end
