@@ -20,6 +20,7 @@
 //     distribution.
 //
 
+#import <objc/runtime.h>
 #import <AVFoundation/AVFoundation.h>
 #import "ARCameraView.h"
 #import "AVCamCaptureManager.h"
@@ -171,7 +172,29 @@
             [_captureButton removeFromSuperview];
         }
         
+        // remove the capture target/action for the old button
+        [_captureButton removeTarget:self action:@selector(captureImage:) forControlEvents:UIControlEventTouchUpInside];
+        
+        
         _captureButton = captureButton;
+        
+        // check that the new button has a target/action for capturing an image and add one if not
+        BOOL hasTarget = NO;
+        for (NSString *selectorString in [_captureButton actionsForTarget:self forControlEvent:UIControlEventTouchUpInside]) {
+            SEL selector = NSSelectorFromString(selectorString);
+            if (sel_isEqual(selector, @selector(captureImage:))) {
+                hasTarget = YES;
+                break;
+            }
+        }
+        if (!hasTarget) {
+            [_captureButton addTarget:self action:@selector(captureImage:) forControlEvents:UIControlEventTouchUpInside];
+        }
+        
+        
+        if (_captureButton == nil) {
+            [self createCameraButton];
+        }
     }
 }
 
