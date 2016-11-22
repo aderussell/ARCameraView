@@ -120,6 +120,8 @@
     return NO;
 }
 
+
+
 #pragma mark - Key Value Observing
 
 - (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context
@@ -131,6 +133,8 @@
     }
     [super observeValueForKeyPath:keyPath ofObject:object change:change context:context];
 }
+
+
 
 #pragma mark - Setters & Getters
 
@@ -222,6 +226,7 @@
 }
 
 
+
 #pragma mark - Toggle Camera
 
 - (void)toggleCamera
@@ -233,6 +238,7 @@
         }
     }
 }
+
 
 
 #pragma mark - Camera Button Creation
@@ -281,6 +287,8 @@
     [self addConstraint:centerX];
 }
 
+
+
 #pragma mark - Camera Focus Handling
 
 - (void)focusStateChanged
@@ -311,6 +319,8 @@
         self.addedFocusKVO = NO;
     }
 }
+
+
 
 #pragma mark - Starting & Stopping Camera
 
@@ -418,6 +428,7 @@
 }
 
 
+
 #pragma mark - Resize Handling
 
 - (void)layoutSubviews
@@ -435,6 +446,8 @@
     }
 }
 
+
+
 #pragma mark - Rotation Handling
 
 /** handles the device orientation. Called from NSNotficationCenter. */
@@ -446,6 +459,7 @@
         [self.captureVideoPreviewLayer.connection setVideoOrientation:orientation];
     }
 }
+
 
 
 #pragma mark - Capturing Images
