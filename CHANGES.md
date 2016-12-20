@@ -1,3 +1,9 @@
+1.0.2 (In Progress)
+-------------------
+
+#### Fixed
+* Overlay layer is now correctly shown if it is added to the view before the camera is started.
+* The delegate method for the view weill not be incorrectly called if an image is not captured by the camera when the camera button is pressed.
 
 
 1.0.1 (22/11/2016)

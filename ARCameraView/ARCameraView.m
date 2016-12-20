@@ -113,7 +113,7 @@
         AVCaptureVideoPreviewLayer *newCaptureVideoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:self.captureManager.session];
         newCaptureVideoPreviewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill;
         newCaptureVideoPreviewLayer.frame        = self.bounds;
-        [self.layer addSublayer:newCaptureVideoPreviewLayer];
+        [self.layer insertSublayer:newCaptureVideoPreviewLayer below:self.overlay];
         self.captureVideoPreviewLayer = newCaptureVideoPreviewLayer;
         
         return YES;

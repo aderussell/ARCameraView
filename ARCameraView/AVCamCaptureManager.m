@@ -227,14 +227,11 @@ AVCaptureVideoOrientation AVCaptureVideoOrientationFromUIInterfaceOrientation(UI
                                                                  NSData *imageData = [AVCaptureStillImageOutput jpegStillImageNSDataRepresentation:imageDataSampleBuffer];
                                                                  
                                                                  image = [[UIImage alloc] initWithData:imageData];
-                                                                 //image = [UIImage imageWithCGImage:[image CGImage]
-                                                                   //                  scale:[image scale]
-                                                                     //          orientation: UIImageOrientationUp];
-                                                             }
-                                                             
-                                                             // call the delegate method
-                                                             if ([[self delegate] respondsToSelector:@selector(captureManagerStillImageCaptured:image:)]) {
-                                                                 [[self delegate] captureManagerStillImageCaptured:self image:image];
+                                                                 
+                                                                 // call the delegate method
+                                                                 if ([[self delegate] respondsToSelector:@selector(captureManagerStillImageCaptured:image:)]) {
+                                                                     [[self delegate] captureManagerStillImageCaptured:self image:image];
+                                                                 }
                                                              }
                                                          }];
 }
