@@ -21,6 +21,7 @@
 		ABBC8C7A199403E6008F3153 /* UIImage+AspectResize.m in Sources */ = {isa = PBXBuildFile; fileRef = ABBC8C79199403E6008F3153 /* UIImage+AspectResize.m */; };
 		ABBC8C801994F528008F3153 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C4B1992A194008F3153 /* Main.storyboard */; };
 		ABBC8C811994F528008F3153 /* Main-iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ABBC8C7F1994F26B008F3153 /* Main-iPhone.storyboard */; };
+		BF8D97801E0A7769001460BB /* UIImage+FixOrientation.m in Sources */ = {isa = PBXBuildFile; fileRef = BF8D977F1E0A7769001460BB /* UIImage+FixOrientation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +48,8 @@
 		ABBC8C78199403E6008F3153 /* UIImage+AspectResize.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AspectResize.h"; sourceTree = "<group>"; };
 		ABBC8C79199403E6008F3153 /* UIImage+AspectResize.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AspectResize.m"; sourceTree = "<group>"; };
 		ABBC8C7E1994F26B008F3153 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = "Base.lproj/Main-iPhone.storyboard"; sourceTree = "<group>"; };
+		BF8D977E1E0A7769001460BB /* UIImage+FixOrientation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+FixOrientation.h"; sourceTree = "<group>"; };
+		BF8D977F1E0A7769001460BB /* UIImage+FixOrientation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+FixOrientation.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +132,8 @@
 				ABBC8C741992A226008F3153 /* AVCamCaptureManager.m */,
 				ABBC8C78199403E6008F3153 /* UIImage+AspectResize.h */,
 				ABBC8C79199403E6008F3153 /* UIImage+AspectResize.m */,
+				BF8D977E1E0A7769001460BB /* UIImage+FixOrientation.h */,
+				BF8D977F1E0A7769001460BB /* UIImage+FixOrientation.m */,
 			);
 			name = "Camera View";
 			path = ../ARCameraView;
@@ -203,6 +208,7 @@
 			files = (
 				ABBC8C461992A194008F3153 /* main.m in Sources */,
 				ABBC8C771992A226008F3153 /* AVCamCaptureManager.m in Sources */,
+				BF8D97801E0A7769001460BB /* UIImage+FixOrientation.m in Sources */,
 				ABBC8C7A199403E6008F3153 /* UIImage+AspectResize.m in Sources */,
 				ABBC8C501992A194008F3153 /* ARViewController.m in Sources */,
 				ABBC8C761992A226008F3153 /* ARCameraView.m in Sources */,

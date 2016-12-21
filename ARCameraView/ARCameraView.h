@@ -106,8 +106,12 @@
 /** Whether, or not, the capture button is hidden while the camera is adjusting the focus. The default is `YES`. */
 @property (nonatomic) BOOL hideCaptureButtonDuringCameraAdjustingFocus;
 
+/** Whether, or not, the overlay layer will still be displayed when an image has been captured and is being displayed in the view. The default is `NO`. */
+@property (nonatomic) BOOL showOverlayOverCapturedImage;
+
+
 /** The button that is pressed to capture an image. */
-@property (nonatomic) ARCameraButton *captureButton;
+@property (nonatomic, null_resettable) ARCameraButton *captureButton;
 
 @end
 

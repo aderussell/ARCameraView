@@ -25,6 +25,7 @@
 #import "ARCameraView.h"
 #import "AVCamCaptureManager.h"
 #import "UIImage+AspectResize.h"
+#import "UIImage+FixOrientation.h"
 
 #define CAMERA_BUTTON_DISTANCE_FROM_BOTTOM 40.0
 
@@ -40,7 +41,7 @@
 @property AVCaptureVideoPreviewLayer *captureVideoPreviewLayer;
 
 /** The image view upon which the captured image is displayed. */
-@property UIImageView *imageView;
+@property CALayer *imageView;
 
 /** Whether, or not, The focus property of the camera is being observed. */
 @property BOOL addedFocusKVO;
@@ -440,14 +441,14 @@
     
     // stop and teardown the session, this is done in a seperate queue and the method is synchronous and may take some time.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void) {
-                       [[self.captureManager session] stopRunning];
-                       [self.captureManager teardownSession];
-                       
-                       dispatch_sync(dispatch_get_main_queue(), ^(void) {
-                           self.imageTaken = nil;
-                           self.captureButton.hidden = YES;
-                       });
-                   });
+        [[self.captureManager session] stopRunning];
+        [self.captureManager teardownSession];
+        
+        dispatch_sync(dispatch_get_main_queue(), ^(void) {
+            self.imageTaken = nil;
+            self.captureButton.hidden = YES;
+        });
+    });
 }
 
 
@@ -500,7 +501,7 @@
     // if the camera is not running and an image is being displayed, remove the image and start the camera.
     if (![[_captureManager session] isRunning]) {
         self.captureButton.showingCancel = NO;
-        [_imageView removeFromSuperview];
+        [_imageView removeFromSuperlayer];
         [[_captureManager session] startRunning];
         return;
     }
@@ -529,7 +530,7 @@
 - (void)removeTakenImage
 {
     // remove image view
-    [self.imageView removeFromSuperview];
+    [self.imageView removeFromSuperlayer];
     self.imageView = nil;
     
     // remove the captured images
@@ -562,7 +563,7 @@
 
 - (void)captureManagerStillImageCaptured:(AVCamCaptureManager *)captureManager image:(UIImage *)image
 {
-    // the method recieves an uncropped image; set a the whole image/
+    // the method recieves an uncropped image; set a the whole image.
     self.wholeImageTaken = image;
     
     // set the image to a cropped version.
@@ -570,14 +571,18 @@
     
     // if there is no image view to display image then make one.
     if (self.imageView == nil) {
-        self.imageView = [UIImageView new];
-        self.imageView.contentMode = UIViewContentModeScaleAspectFit;
+        self.imageView = [CALayer new];
+        self.imageView.contentsGravity = kCAGravityResizeAspect;
     }
     
     // set up image view and add to camera view (below snap button as we need that to be visible)
     self.imageView.frame = self.bounds;
-    self.imageView.image = self.imageTaken;
-    [self insertSubview:self.imageView belowSubview:self.captureButton];
+    self.imageView.contents = (__bridge id _Nullable)([self.imageTaken fixOrientation].CGImage);
+    if (self.overlay && self.showOverlayOverCapturedImage || 1) {
+        [self.layer insertSublayer:self.imageView below:self.overlay];
+    } else {
+        [self.layer insertSublayer:self.imageView above:self.overlay];
+    }
     
     // message the delegate that an iamge was taken.
     if ([self.delegate respondsToSelector:@selector(cameraView:hasTakenImage:)]) {
