@@ -23,8 +23,10 @@
 @import UIKit;
 #import "ARCameraButton.h"
 
-@class ARCameraView;
 
+NS_ASSUME_NONNULL_BEGIN
+
+@class ARCameraView;
 
 /**
  The delegate for ARCameraView. This gives a way for an external object to receive notification of events that occured on the camera view such as an photo being taken.
@@ -56,6 +58,7 @@
 /**
  This class is a custom view that can take photos from the device camera.
  */
+IB_DESIGNABLE
 @interface ARCameraView : UIView
 
 /**
@@ -125,3 +128,4 @@
 
 @end
 
+NS_ASSUME_NONNULL_END

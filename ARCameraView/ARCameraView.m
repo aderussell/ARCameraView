@@ -578,7 +578,7 @@
     // set up image view and add to camera view (below snap button as we need that to be visible)
     self.imageView.frame = self.bounds;
     self.imageView.contents = (__bridge id _Nullable)([self.imageTaken fixOrientation].CGImage);
-    if (self.overlay && self.showOverlayOverCapturedImage || 1) {
+    if (self.overlay && self.showOverlayOverCapturedImage) {
         [self.layer insertSublayer:self.imageView below:self.overlay];
     } else {
         [self.layer insertSublayer:self.imageView above:self.overlay];
