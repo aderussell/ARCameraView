@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name         = "ARCameraView"
-  s.version      = "1.0.2"
+  s.version      = "1.0.3"
   s.summary      = "A drop-in view for iOS that gives access to the device cameras and allows photos to be captured."
   s.description  = "A drop-in view for iOS that gives access to the device cameras and allows photos to be captured. This enables photos to be captured from ny view controller without having to present UIImagePickerViewController as another separate view controller."
 

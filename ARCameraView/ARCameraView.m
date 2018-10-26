@@ -417,10 +417,10 @@
     // stop the session, this is done in a seperate queue and the method is synchronous and may take some time.
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void)
                    {
-                       [[_captureManager session] stopRunning];
+                       [[self.captureManager session] stopRunning];
                        
                        dispatch_sync(dispatch_get_main_queue(), ^(void){
-                           _imageTaken = nil;
+                           self.imageTaken = nil;
                            self.captureButton.hidden = YES;
                        });
                    });
@@ -519,7 +519,7 @@
                      completion:^(BOOL finished){
                          [flashView removeFromSuperview];
                          self.captureButton.showingCancel = YES;
-                         [[_captureManager session] stopRunning];
+                         [[self.captureManager session] stopRunning];
                      }
      ];
     

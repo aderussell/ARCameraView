@@ -1,3 +1,11 @@
+1.0.3 (13/07/2018)
+-------------------
+
+#### Fixed
+* Fixed warnings in Xcode 9.
+
+
+
 1.0.2 (24/12/2016)
 -------------------
 
@@ -6,7 +14,8 @@
 
 #### Fixed
 * Overlay layer is now correctly shown if it is added to the view before the camera is started.
-* The delegate method for the view weill not be incorrectly called if an image is not captured by the camera when the camera button is pressed.
+* The delegate method for the view will not be incorrectly called if an image is not captured by the camera when the camera button is pressed.
+
 
 
 1.0.1 (22/11/2016)
@@ -23,5 +32,9 @@
 
 1.0.0 (15/12/2014)
 ------------------
+
+#### Changed
 * Added message if camera permission is denied
-* fixed error in Xcode 6
+
+#### Fixed
+* Fixed error in Xcode 6
